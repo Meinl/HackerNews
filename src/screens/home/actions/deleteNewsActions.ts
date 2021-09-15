@@ -1,5 +1,3 @@
-import {createAction} from 'typesafe-actions'
+import { createAction } from "typesafe-actions";
 
-export const deleteNews = createAction(
-  'DELETE_NEWS', (id: string) => id
-)();
+export const deleteNews = createAction("DELETE_NEWS", (id: string) => id)();
