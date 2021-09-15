@@ -26,12 +26,14 @@ export default function SwipeableRow({children, onPress}: SwipeableRowProps) {
           swipeableRef?.current.close()
         }
       }}>
-        <AnimatedIcon
-          name="delete-forever"
-          size={30}
-          color="#fff"
-          style={[styles.actionIcon, {transform:[{scale}]}]}
-        />
+        <Animated.View style={[styles.actionIcon, {transform:[{scale}]}]}>
+          <Icon
+            name="delete-forever"
+            size={30}
+            color="#fff"
+          />
+        </Animated.View>
+        
       </RectButton>
     );
   };

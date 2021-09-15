@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
 import { View, Text, RefreshControl, TouchableWithoutFeedback, Animated, StyleSheet, Alert } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useRootSelectorState } from '../../reducers'
@@ -51,8 +51,7 @@ export default function Home() {
     );
 	}
 
-	const renderItem = ({ item, index }: { item: News; index: number }) => {
-
+	const renderItem = useCallback(({ item, index }: { item: News; index: number }) => {
 		const inputRange = [-1, 0, index * (ITEM_HEIGHT + 10), (index + 2) * (ITEM_HEIGHT + 10)]
 		const scale = scrollY.interpolate({
 			inputRange,
@@ -78,9 +77,8 @@ export default function Home() {
 	 			</Animated.View>
 				</TouchableWithoutFeedback>
 					
-			</SwipeableRow>
-		)
-	}
+			</SwipeableRow>)
+	}, [])
 
 	return(
 		<View style={{flex:1}}>
